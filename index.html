@@ -44,7 +44,35 @@
     <!--custom css start-->
     <link rel="stylesheet" href="assets/css/custom.css">
     <!--custom css end-->
+    <script
+		src="https://code.jquery.com/jquery-3.4.1.js"
+		integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+		crossorigin="anonymous"></script>
+    <script>
+		function SubForm (){
+            var validateform = $("#subscribers input").val();
 
+            if( validateform != '' ) {
+                $.ajax({
+                    url:"https://api.apispreadsheets.com/data/MqPqCyFORF2OG77t/",
+                    type:"post",
+                    data:$("#subscribers").serializeArray(),
+                    success: function(){
+                        $('.subscribe-error').addClass('alert alert-success');
+                        $('.subscribe-error').html('Subscribed Successfully!');
+                    },
+                    error: function(){
+                        $('.subscribe-error').addClass('alert alert-danger');
+                        $('.subscribe-error').html('Somethings is wrong!');
+                    }
+                });
+            } else {
+                $('.subscribe-error').addClass('alert alert-danger');
+                $('.subscribe-error').html('Form is blank!');
+            }
+			
+		}
+	</script>
 </head>
 
 <body>
@@ -81,13 +109,14 @@
                     <div class="collapse navbar-collapse justify-content-center">
                         <ul class="nav col-12 col-md-auto justify-content-center main-menu">
                             <li class="nav-item dropdown"><a class="nav-link" href="index.html">Hjme</a></li>
-                            <li><a href="services.html" class="nav-link">Om Oss</a></li>
-                            <li><a href="pricing.html" class="nav-link">Feature</a></li>
+                            <li><a href="#about-us" class="nav-link">Om Oss</a></li>
+                            <li><a href="#features" class="nav-link">Trekk</a></li>
                         </ul>
                     </div>
 
                     <div class="action-btns text-end me-5 me-lg-0 d-none d-md-block d-lg-block">
-                        <a href="request-demo.html" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Get Qoute</a>
+                        <a href="login.html" class="btn btn-link text-decoration-none me-2">Logg inn</a>
+                        <a href="request-demo.html" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Prøv gratis nå!</a>
                     </div>
                 </div>
             </nav>
@@ -95,7 +124,7 @@
             <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasWithBackdrop">
                 <div class="offcanvas-header d-flex align-items-center mt-4">
                     <a href="index.html" class="d-flex align-items-center mb-md-0 text-decoration-none">
-                        <img src="assets/img/logo-color.png" alt="logo" class="img-fluid ps-2" />
+                        <img src="assets/img/logo-1.png" alt="logo" class="img-fluid ps-2" />
                     </a>
                     <button type="button" class="close-btn text-danger" data-bs-dismiss="offcanvas" aria-label="Close">
                         <i class="far fa-close"></i>
@@ -103,302 +132,13 @@
                 </div>
                 <div class="offcanvas-body">
                     <ul class="nav col-12 col-md-auto justify-content-center main-menu">
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                Home
-                            </a>
-                            <div class="dropdown-menu border-0 rounded-custom shadow py-0 bg-white">
-                                <div class="dropdown-grid rounded-custom width-half">
-                                    <div class="dropdown-grid-item">
-                                        <h6 class="drop-heading">Different Home</h6>
-                                        <a href="index.html" class="dropdown-link">
-                                            <span class="demo-list bg-primary rounded text-white fw-bold"
-                            >1</span>
-                                            <div class="dropdown-info">
-                                                <div class="drop-title">Saas Company 1</div>
-                                                <p>It's for <strong>SaaS Software</strong> Company</p>
-                                            </div>
-                                        </a>
-                                        <a href="index-2.html" class="dropdown-link">
-                                            <span class="demo-list bg-primary rounded text-white fw-bold"
-                            >2</span>
-                                            <div class="dropdown-info">
-                                                <div class="drop-title">Saas Company 2</div>
-                                                <p>Modern <strong>Saas agency</strong></p>
-                                            </div>
-                                        </a>
-                                        <a href="index-3.html" class="dropdown-link">
-                                            <span class="demo-list bg-primary rounded text-white fw-bold"
-                            >3</span>
-                                            <div class="dropdown-info">
-                                                <div class="drop-title">Desktop App</div>
-                                                <p><strong>Web Software</strong> Company</p>
-                                            </div>
-                                        </a>
-                                        <a href="index-4.html" class="dropdown-link">
-                                            <span class="demo-list bg-primary rounded text-white fw-bold"
-                            >4</span>
-                                            <div class="dropdown-info">
-                                                <div class="drop-title">App Landing</div>
-                                                <p>App and <strong>Software</strong> Landing</p>
-                                            </div>
-                                        </a>
-                                        <a href="index-5.html" class="dropdown-link">
-                                            <span class="demo-list bg-primary rounded text-white fw-bold"
-                            >5</span>
-                                            <div class="dropdown-info">
-                                                <div class="drop-title">Software Application</div>
-                                                <p>IT solutions and <strong>SaaS Application</strong></p>
-                                            </div>
-                                        </a>
-
-                                        <a href="index-6.html" class="dropdown-link">
-                                            <span class="demo-list bg-primary rounded text-white fw-bold"
-                            >6</span>
-                                            <div class="dropdown-info">
-                                                <div class="drop-title">Startup Agency</div>
-                                                <p>Different type of <strong>Agency</strong>&lrm;</p>
-                                            </div>
-                                        </a>
-                                        <a href="index-7.html" class="dropdown-link">
-                                            <span class="demo-list bg-primary rounded text-white fw-bold"
-                            >7</span>
-                                            <div class="dropdown-info">
-                                                <div class="drop-title">Data Analysis</div>
-                                                <p>Software & <strong>Data Analysis</strong>&lrm;</p>
-                                            </div>
-                                        </a>
-                                        <a href="index-8.html" class="dropdown-link">
-                                            <span class="demo-list bg-primary rounded text-white fw-bold"
-                            >8</span>
-                                            <div class="dropdown-info">
-                                                <div class="drop-title">App Landing Two</div>
-                                                <p>Software & <strong>App Landing Two</strong>&lrm;</p>
-                                            </div>
-                                        </a>
-                                        <a href="index-9.html" class="dropdown-link">
-                                            <span class="demo-list bg-primary rounded text-white fw-bold"
-                            >9</span>
-                                            <div class="dropdown-info">
-                                                <div class="drop-title">IT Solution</div>
-                                                <p>IT solutions and <strong>SaaS Application</strong></p>
-                                            </div>
-                                        </a>
-                                        <a href="index-10.html" class="dropdown-link">
-                                            <span class="demo-list bg-primary rounded text-white fw-bold"
-                            >10</span>
-                                            <div class="dropdown-info">
-                                                <div class="drop-title">Cyber Security</div>
-                                                <p>Cyber Security <strong>Landing Page</strong></p>
-                                            </div>
-                                        </a>
-                                        <a href="index-11.html" class="dropdown-link">
-                                            <span class="demo-list bg-primary rounded text-white fw-bold">
-                            11
-                          </span>
-                                            <div class="dropdown-info">
-                                                <div class="drop-title">Crypto Currency</div>
-                                                <p><strong>Crypto Currency</strong> landing page</p>
-                                            </div>
-                                        </a>
-                                        <a href="index-12.html" class="dropdown-link">
-                                            <span class="demo-list bg-primary rounded text-white fw-bold">
-                            12
-                          </span>
-                                            <div class="dropdown-info">
-                                                <div class="drop-title">Game Solutions</div>
-                                                <p><strong>Game Server</strong> landing page</p>
-                                            </div>
-                                        </a>
-                                        <a href="index-13.html" class="dropdown-link">
-                                            <span class="demo-list bg-primary rounded text-white fw-bold">
-                            13
-                          </span>
-                                            <div class="dropdown-info">
-                                                <div class="drop-title">Payment Gateway</div>
-                                                <p><strong>Payment Gateway</strong> landing page</p>
-                                            </div>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-                        <li><a href="services.html" class="nav-link">Services</a></li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Resources</a>
-                            <div class="dropdown-menu border-0 rounded-custom shadow py-0 bg-white">
-                                <div class="dropdown-grid rounded-custom width-full-3">
-                                    <div class="dropdown-grid-item">
-                                        <h6 class="drop-heading">Reusable Section</h6>
-                                        <a href="header.html" class="dropdown-link">
-                                            <span class="me-2"><i class="far fa-bars"></i></span>
-                                            <div class="drop-title">Navigations</div>
-                                        </a>
-                                        <a href="hero-sections.html" class="dropdown-link">
-                                            <span class="me-2"><i class="far fa-browser"></i></span>
-                                            <div class="drop-title">Hero Sections</div>
-                                        </a>
-                                        <a href="testimonials.html" class="dropdown-link">
-                                            <span class="me-2"><i class="far fa-address-card"></i></span>
-                                            <div class="drop-title">Testimonials</div>
-                                        </a>
-                                        <a href="call-to-action.html" class="dropdown-link">
-                                            <span class="me-2"><i class="far fa-bolt"></i></span>
-                                            <div class="drop-title">Call to Action</div>
-                                        </a>
-                                        <a href="tab-style.html" class="dropdown-link">
-                                            <span class="me-2"><i class="far fa-eject"></i></span>
-                                            <div class="drop-title">Tab Style</div>
-                                        </a>
-                                        <a href="services-style.html" class="dropdown-link">
-                                            <span class="me-2"><i class="far fa-code-branch"></i></span>
-                                            <div class="drop-title">Services Style</div>
-                                        </a>
-                                        <a href="work-process.html" class="dropdown-link">
-                                            <span class="me-2"
-                            ><i class="far fa-hourglass-start"></i
-                          ></span>
-                                            <div class="drop-title">Work Process</div>
-                                        </a>
-                                    </div>
-                                    <div class="dropdown-grid-item">
-                                        <h6 class="drop-heading">Reusable Section</h6>
-                                        <a href="pricing-style.html" class="dropdown-link">
-                                            <span class="me-2"><i class="far fa-usd-square"></i></span>
-                                            <div class="drop-title">Pricing Style</div>
-                                        </a>
-                                        <a href="accordions.html" class="dropdown-link">
-                                            <span class="me-2"><i class="far fa-th-list"></i></span>
-                                            <div class="drop-title">Accordions</div>
-                                        </a>
-                                        <a href="features.html" class="dropdown-link">
-                                            <span class="me-2"><i class="far fa-chart-network"></i></span>
-                                            <div class="drop-title">Features</div>
-                                        </a>
-                                        <a href="footers.html" class="dropdown-link">
-                                            <span class="me-2"
-                            ><i class="far fa-closed-captioning"></i
-                          ></span>
-                                            <div class="drop-title">Footers</div>
-                                        </a>
-
-                                        <a href="team.html" class="dropdown-link">
-                                            <span class="me-2"><i class="far fa-user"></i></span>
-                                            <div class="drop-title">Our Team</div>
-                                        </a>
-                                        <a href="integration-style.html" class="dropdown-link">
-                                            <span class="me-2"><i class="far fa-paper-plane"></i></span>
-                                            <div class="drop-title">Integration Style</div>
-                                        </a>
-                                        <a href="blog-style.html" class="dropdown-link">
-                                            <span class="me-2"><i class="far fa-th-large"></i></span>
-                                            <div class="drop-title">Blog Style</div>
-                                        </a>
-                                    </div>
-                                    <div class="dropdown-grid-item last-item bg-light radius-right-side">
-                                        <a href="#"><img src="assets/img/feature-img3.jpg" alt="add" class="img-fluid rounded-custom" /></a>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-                        <li><a href="pricing.html" class="nav-link">Pricing</a></li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Company</a>
-                            <div class="dropdown-menu border-0 rounded-custom shadow py-0 bg-white">
-                                <div class="dropdown-grid rounded-custom width-full">
-                                    <div class="dropdown-grid-item">
-                                        <h6 class="drop-heading">Useful Links</h6>
-                                        <a href="about-us.html" class="dropdown-link px-0">
-                                            <span class="me-2"><i class="far fa-fingerprint"></i></span>
-                                            <div class="drop-title">About Us</div>
-                                        </a>
-                                        <a href="contact-us.html" class="dropdown-link px-0">
-                                            <span class="me-2"><i class="far fa-address-book"></i></span>
-                                            <div class="drop-title">Contact Us</div>
-                                        </a>
-                                        <a href="services.html" class="dropdown-link">
-                                            <span class="me-2"><i class="far fa-code-branch"></i></span>
-                                            <div class="drop-title">Services</div>
-                                        </a>
-                                        <a href="service-single.html" class="dropdown-link px-0">
-                                            <span class="me-2"><i class="far fa-server"></i></span>
-                                            <div class="drop-title">Services Single</div>
-                                        </a>
-                                        <a href="blog.html" class="dropdown-link">
-                                            <span class="me-2"><i class="far fa-th-large"></i></span>
-                                            <div class="drop-title">Our Latest News</div>
-                                        </a>
-                                        <a href="blog-single.html" class="dropdown-link">
-                                            <span class="me-2"><i class="far fa-bars"></i></span>
-                                            <div class="drop-title">News Details</div>
-                                        </a>
-                                        <a href="career.html" class="dropdown-link px-0">
-                                            <span class="me-2"
-                            ><i class="far fa-graduation-cap"></i
-                          ></span>
-                                            <div class="drop-title">Career</div>
-                                        </a>
-                                        <a href="career-single.html" class="dropdown-link px-0">
-                                            <span class="me-2"><i class="far fa-user-graduate"></i></span>
-                                            <div class="drop-title">Career Single</div>
-                                        </a>
-                                        <a href="integrations.html" class="dropdown-link">
-                                            <span class="me-2"><i class="far fa-rocket-launch"></i></span>
-                                            <div class="drop-title">Integrations</div>
-                                        </a>
-                                        <a href="integration-single.html" class="dropdown-link px-0">
-                                            <span class="me-2"><i class="far fa-paper-plane"></i></span>
-                                            <div class="drop-title">Integration Single</div>
-                                        </a>
-                                    </div>
-                                    <div class="dropdown-grid-item radius-right-side bg-light">
-                                        <h6 class="drop-heading">Utility Pages</h6>
-                                        <a href="style-guide.html" class="dropdown-link">
-                                            <span class="me-2"><i class="far fa-code-branch"></i></span>
-                                            <div class="drop-title">Style Guide</div>
-                                        </a>
-                                        <a href="support.html" class="dropdown-link">
-                                            <span class="me-2"><i class="far fa-life-ring"></i></span>
-                                            <div class="drop-title">Help Center</div>
-                                        </a>
-                                        <a href="support-single.html" class="dropdown-link">
-                                            <span class="me-2"><i class="far fa-headset"></i></span>
-                                            <div class="drop-title">Help Details</div>
-                                        </a>
-                                        <a href="request-demo.html" class="dropdown-link">
-                                            <span class="me-2"><i class="far fa-laptop-code"></i></span>
-                                            <div class="drop-title">Request for Demo</div>
-                                        </a>
-                                        <a href="login.html" class="dropdown-link">
-                                            <span class="me-2"><i class="far fa-sign-in"></i></span>
-                                            <div class="drop-title">User Login</div>
-                                        </a>
-                                        <a href="register.html" class="dropdown-link">
-                                            <span class="me-2"><i class="far fa-user-plus"></i></span>
-                                            <div class="drop-title">User SignUp</div>
-                                        </a>
-                                        <a href="password-reset.html" class="dropdown-link">
-                                            <span class="me-2"><i class="far fa-trash-undo"></i></span>
-                                            <div class="drop-title">Recovery Account</div>
-                                        </a>
-                                        <a href="404.html" class="dropdown-link">
-                                            <span class="me-2"
-                            ><i class="far fa-exclamation-triangle"></i
-                          ></span>
-                                            <div class="drop-title">404 Page</div>
-                                        </a>
-                                        <a href="coming-soon.html" class="dropdown-link">
-                                            <span class="me-2"><i class="far fa-clock"></i></span>
-                                            <div class="drop-title">Coming Soon</div>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
+                        <li class="nav-item dropdown"><a class="nav-link" href="index.html">Hjme</a></li>
+                        <li><a href="#about-us" class="nav-link">Om Oss</a></li>
+                        <li><a href="#features" class="nav-link">Trekk</a></li>                        
                     </ul>
                     <div class="action-btns mt-4 ps-3">
-                        <a href="login.html" class="btn btn-outline-primary me-2">Sign In</a>
-                        <a href="request-demo.html" class="btn btn-primary">Get Started</a>
+                        <a href="login.html" class="btn btn-outline-primary me-2">Log Inn</a>
+                        <a href="request-demo.html" class="btn btn-primary">Prøv gratis nå!</a>
                     </div>
                 </div>
             </div>
@@ -412,22 +152,17 @@
                 <div class="row align-items-center justify-content-lg-between">
                     <div class="col-xl-5 col-lg-5">
                         <div class="hero-content-wrap text-center text-xl-start text-lg-start" data-aos="fade-right">
-                            <h1 class="fw-bold display-5">Powerful Solutions for Your Business</h1>
-                            <p class="lead">Proactively coordinate quality quality vectors vis-a-vis supply chains client-centric web services.</p>
-                            <div class="hero-subscribe-form-wrap pt-4 position-relative m-auto m-xl-0 d-none d-md-block d-lg-block d-xl-block">
-                                <form id="subscribe-form" name="email-form" class="hero-subscribe-form d-block d-lg-flex d-md-flex">
-                                    <input type="email" class="form-control me-2" name="Email" data-name="Email" placeholder="Enter Your Email Address" id="email-address" required="">
-                                    <input type="submit" value="Subscribe" data-wait="Please wait..." class="btn btn-primary mt-3 mt-lg-0 mt-md-0">
-                                </form>
-                                <ul class="nav subscribe-feature-list mt-3">
-                                    <li class="nav-item">
-                                        <span class="ms-0"><i class="far fa-check-circle text-primary me-2"></i>Free 14-day trial</span>
-                                    </li>
-                                    <li class="nav-item">
-                                        <span><i
-                                                class="far fa-check-circle text-primary me-2"></i>No credit card required</span>
-                                    </li>
-                                </ul>
+                            <h1 class="fw-bold display-5">SMS Caster for bedrifter</h1>
+                            <p class="lead">SMSCASTER.NO gateway gir forskjellige tekniske løsninger for norske organisasjoner og bedrifter.</p>
+                            <div class="hero-subscribe-form-wrap pt-4 position-relative m-auto m-xl-0 d-none d-lg-flex d-md-flex d-xl-block">
+                                <div class="hero-subscribe-form d-block d-lg-flex d-md-flex mb-2">
+                                    <form id="subscribers">
+                                        <input type="text" class="form-control me-2" name="phone_number" placeholder="Tast inn ditt telefonnummer" id="phone-number" required="">
+                                    </form>
+                                    &nbsp;
+                                    <button onclick='SubForm()' class="btn btn-primary mt-3 mt-lg-0 mt-md-0 ml-2">Abonnere</button>
+                                </div> 
+                                <div class="subscribe-error"></div>                               
                             </div>
 
                         </div>
@@ -464,16 +199,85 @@
         </section>
         <!--hero section end-->
 
+        <!--feature section start-->
+        <section class="feature-section-two ptb-120" id="features">
+            <div class="container">
+                <div class="row align-items-center justify-content-between">
+                    <div class="col-lg-5 col-md-12">
+                        <div class="section-heading" data-aos="fade-up">
+                            <h4 class="h5 text-primary">Funksjoner</h4>
+                            <h2>Kraftige løsninger for bedriftens behov</h2>
+                            <p>Ved bruk av CipherTech SMS Gateway og SMS Web Portal har bedrifter mulighet til å klargjøre SMS på forhånd og sette utsendelse frem i tid.</p>
+                            <ul class="list-unstyled mt-5">
+                                <li class="d-flex align-items-start mb-4">
+                                    <div class="icon-box bg-primary rounded me-4">
+                                        <i class="fas fa-bezier-curve text-white"></i>
+                                    </div>
+                                    <div class="icon-content">
+                                        <h3 class="h5">Kodeord</h3>
+                                        <p>Motta SMS på nett ved hjelp av kodeord. Kodeord er et ord som man bruker til å motta innkommende SMS fra kunder på et kortnummer og kan brukes f.eks. i rabattkuponger, SMS Konkurranser, SMS-Varsling, dialog med kunder i Kundeklubber.
+                                            Man kan lage egen Kodeord i CipherTech SMS Gateway for å ha en effektiv og raskt toveis kommunikasjon med kunder.
+                                        </p>
+                                    </div>
+                                </li>
+                                <li class="d-flex align-items-start mb-4">
+                                    <div class="icon-box bg-danger rounded me-4">
+                                        <i class="fas fa-fingerprint text-white"></i>
+                                    </div>
+                                    <div class="icon-content">
+                                        <h3 class="h5">SMS Gateway API</h3>
+                                        <p>SMS Gateway API er en tjeneste for utviklere og brukes for å integrere IT-systemer til CipherTech server.
+                                            CipherTech API er en REST-API grensesnitt. Bedrifter får API bruker for API call etter at kundekonto opprettes hos CipherTech SMS gateway.
+                                        </p>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-7">
+                        <div class="feature-img-wrap position-relative d-flex flex-column align-items-end">
+                            <ul class="img-overlay-list list-unstyled position-absolute">
+                                <li class="d-flex align-items-center bg-white rounded shadow-sm p-3" data-aos="fade-up" data-aos-delay="50">
+                                    <i class="fas fa-check bg-primary text-white rounded-circle"></i>
+                                    <h6 class="mb-0">Kodeord</h6>
+                                </li>
+                                <li class="d-flex align-items-center bg-white rounded shadow-sm p-3" data-aos="fade-up" data-aos-delay="100">
+                                    <i class="fas fa-check bg-primary text-white rounded-circle"></i>
+                                    <h6 class="mb-0">SMS Gateway API</h6>
+                                </li>
+                                <li class="d-flex align-items-center bg-white rounded shadow-sm p-3" data-aos="fade-up" data-aos-delay="150">
+                                    <i class="fas fa-check bg-primary text-white rounded-circle"></i>
+                                    <h6 class="mb-0">SMS til grupper</h6>
+                                </li>
+                                <li class="d-flex align-items-center bg-white rounded shadow-sm p-3" data-aos="fade-up" data-aos-delay="200">
+                                    <i class="fas fa-check bg-primary text-white rounded-circle"></i>
+                                    <h6 class="mb-0">Velg egen avsender</h6>
+                                </li>
+                                <li class="d-flex align-items-center bg-white rounded shadow-sm p-3" data-aos="fade-up" data-aos-delay="250">
+                                    <i class="fas fa-check bg-primary text-white rounded-circle"></i>
+                                    <h6 class="mb-0">Import av kontakter fra fil</h6>
+                                </li>
+                                <li class="d-flex align-items-center bg-white rounded shadow-sm p-3" data-aos="fade-up" data-aos-delay="300">
+                                    <i class="fas fa-check bg-primary text-white rounded-circle"></i>
+                                    <h6 class="mb-0">Tidsstyrt utsendelse</h6>
+                                </li>
+                            </ul>
+                            <img src="assets/img/feature-img3.jpg" alt="feature image" class="img-fluid rounded-custom">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!--feature section end-->
+
         <!--customers section start-->
-        <section class="promo-section ptb-120 bg-light ">
+        <section class="promo-section ptb-120 bg-light" id="about-us">
             <div class="container">
                 <div class="row justify-content-center">
                     <div class="col-md-10 col-lg-6">
                         <div class="section-heading text-center" data-aos="fade-up">
-                            <h2>Our Customers Get Results</h2>
-                            <p>Progressively deploy market positioning catalysts for change and technically sound.
-                                Authoritatively with backward-compatible
-                                e-services. </p>
+                            <h2>CipherTech SMS tjenester</h2>
+                            <p>CipherTech SMS tjenester er en nettbasert skyløsning som ved hjelp av nyeste teknologi tilbyr et pålitelig system som kan tilpasses til ulike typer behov hos små og store bedrifter.</p>
                         </div>
                     </div>
                 </div>
@@ -481,10 +285,10 @@
                     <div class="col-md-6 col-lg-4 mt-4 mt-lg-0 mt-md-0">
                         <div class="bg-dark p-5 text-center d-flex flex-column h-100 rounded-custom" data-aos="fade-up" data-aos-delay="100">
                             <div class="promo-card-info mb-4">
-                                <h3 class="display-5 fw-bold mb-4"><i class="far fa-fingerprint text-warning me-2"></i> 10x
+                                <h3 class="display-5 fw-bold mb-4"> SMS til grupper
                                 </h3>
-                                <p>Embrace distinctive best practices after B2B syndicate backend internal or whereas edge
-                                    process improvements. </p>
+                                <p>CipherTech SMS løsning gir mulighet til umiddelbart utsendelse av melding til alle medlemmer av kundegruppen eller flere kundegrupper.
+                                    Med CipherTech SMS løsning er det lett å organisere kontakter i flere grupper.</p>
                             </div>
                             <div class="mt-auto">
                                 <img src="assets/img/clients/client-logo-4.svg" width="120" alt="clients" class="img-fluid me-auto customer-logo">
@@ -494,10 +298,9 @@
                     <div class="col-md-6 col-lg-4 mt-4 mt-lg-0 mt-md-0">
                         <div class="bg-dark p-5 text-center d-flex flex-column h-100 rounded-custom" data-aos="fade-up" data-aos-delay="150">
                             <div class="promo-card-info mb-4">
-                                <h3 class="display-5 fw-bold mb-4"><i class="far fa-paper-plane text-warning me-2"></i> 5k
+                                <h3 class="display-5 fw-bold mb-4">Velg egen avsender
                                 </h3>
-                                <p>Rapidiously embrace distinctive best practices B2B syndicate backend internal or whereas
-                                    process improvements. </p>
+                                <p>Med CipherTech SMS løsning er det mulig til å velge egen avsender for din bedrift. Egendefinert avsender vises som sender på mobile enheter til kundene. Avsender kan bestå av tekst eller tall, evt. en kombinasjon av tekst og tall av maks 11 karakter. Navn til avsender skal godkjennes fra CipherTech først.</p>
                             </div>
                             <div class="mt-auto">
                                 <img src="assets/img/clients/client-logo-2.svg" width="120" alt="clients" class="img-fluid me-auto customer-logo">
@@ -507,10 +310,9 @@
                     <div class="col-md-6 col-lg-4 mt-4 mt-lg-0">
                         <div class="bg-dark p-5 text-center d-flex flex-column h-100 rounded-custom" data-aos="fade-up" data-aos-delay="200">
                             <div class="promo-card-info mb-4">
-                                <h3 class="display-5 fw-bold mb-4"><i class="far fa-chart-pie-alt text-warning me-2"></i>
-                                    95%</h3>
-                                <p>Distinctive best practices after B2B syndicate internal or whereas bleeding-edge process
-                                    improvements. </p>
+                                <h3 class="display-5 fw-bold mb-4">
+                                    Import av kontakter fra fil</h3>
+                                <p>I CipherTech SMS Gateway er det mulig å importere alle kundekontakter umiddelbart fra en CSV fil og spare tid i å legge de enkeltvis.</p>
                             </div>
                             <div class="mt-auto">
                                 <img src="assets/img/clients/client-logo-3.svg" width="120" alt="clients" class="img-fluid me-auto customer-logo">
@@ -523,81 +325,15 @@
         </section>
         <!--customers section end-->
 
-        <!--feature section start-->
-        <section class="feature-section-two ptb-120">
-            <div class="container">
-                <div class="row align-items-center justify-content-between">
-                    <div class="col-lg-5 col-md-12">
-                        <div class="section-heading" data-aos="fade-up">
-                            <h4 class="h5 text-primary">Features</h4>
-                            <h2>Powerful Solutions for Your Business Needs</h2>
-                            <p>Quickly incubate functional channels with multidisciplinary architectures authoritatively
-                                fabricate.</p>
-                            <ul class="list-unstyled mt-5">
-                                <li class="d-flex align-items-start mb-4">
-                                    <div class="icon-box bg-primary rounded me-4">
-                                        <i class="fas fa-bezier-curve text-white"></i>
-                                    </div>
-                                    <div class="icon-content">
-                                        <h3 class="h5">Pixel Perfect Design</h3>
-                                        <p>Progressively foster enterprise-wide systems whereas equity invested
-                                            web-readiness harness installed.
-                                        </p>
-                                    </div>
-                                </li>
-                                <li class="d-flex align-items-start mb-4">
-                                    <div class="icon-box bg-danger rounded me-4">
-                                        <i class="fas fa-fingerprint text-white"></i>
-                                    </div>
-                                    <div class="icon-content">
-                                        <h3 class="h5">Unique &amp; Minimal Design</h3>
-                                        <p>Dramatically administrate progressive metrics without error-free globally
-                                            simplify standardized.
-                                        </p>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-lg-6 col-md-7">
-                        <div class="feature-img-wrap position-relative d-flex flex-column align-items-end">
-                            <ul class="img-overlay-list list-unstyled position-absolute">
-                                <li class="d-flex align-items-center bg-white rounded shadow-sm p-3" data-aos="fade-up" data-aos-delay="50">
-                                    <i class="fas fa-check bg-primary text-white rounded-circle"></i>
-                                    <h6 class="mb-0">Create a Free Account</h6>
-                                </li>
-                                <li class="d-flex align-items-center bg-white rounded shadow-sm p-3" data-aos="fade-up" data-aos-delay="100">
-                                    <i class="fas fa-check bg-primary text-white rounded-circle"></i>
-                                    <h6 class="mb-0">Install Our Tracking Pixel</h6>
-                                </li>
-                                <li class="d-flex align-items-center bg-white rounded shadow-sm p-3" data-aos="fade-up" data-aos-delay="150">
-                                    <i class="fas fa-check bg-primary text-white rounded-circle"></i>
-                                    <h6 class="mb-0">Start Tracking your Website</h6>
-                                </li>
-                            </ul>
-                            <img src="assets/img/feature-img3.jpg" alt="feature image" class="img-fluid rounded-custom">
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!--feature section end-->
-
         <!--integration section start-->
         <section class="integration-section  ptb-120">
             <div class="container">
                 <div class="row align-items-center justify-content-lg-between">
                     <div class="col-lg-6 col-md-12">
                         <div class="section-heading">
-                            <h4 class="h5 text-primary">Integration</h4>
-                            <h2>We Collaborate with Top Software Company</h2>
-                            <p>Dynamically pursue convergence rather than 24/7 process improvements
-                                develop end-to-end customer service action items.</p>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-12">
-                        <div class="text-lg-end mb-5 mb-lg-0">
-                            <a href="integrations.html" class="btn btn-primary">View All Integrations</a>
+                            <h4 class="h5 text-primary">Integrering</h4>
+                            <h2>Vi samarbeider med Top Software Company</h2>
+                            <p>Systemet tilby smarte løsninger for norske bedrifter som ønsker en nettbasert kommunikasjon med sine kunder. Med CipherTech web portal kan du være i tett og effektiv kontakt med dine kunder uten behov for installasjon eller programmering. Ved bruk av Ciphertech portalen kan du legge til kundene dine enten i grupper eller enkeltvis, og deretter kommunisere via SMS.</p>
                         </div>
                     </div>
                 </div>
@@ -607,115 +343,38 @@
                             <ul class="integration-list list-unstyled mb-0">
                                 <li>
                                     <div class="single-integration">
-                                        <img src="assets/img/integations/airbnb.png" alt="integration" class="img-fluid">
-                                        <h6 class="mb-0 mt-4">Brand Name</h6>
+                                        <img src="assets/img/sim/1.png" alt="integration" class="img-fluid">
+                                        <h6 class="mb-0 mt-4">Telia</h6>
                                     </div>
                                 </li>
                                 <li>
                                     <div class="single-integration">
-                                        <img src="assets/img/integations/figma.png" alt="integration" class="img-fluid">
-                                        <h6 class="mb-0 mt-4">Brand Name</h6>
+                                        <img src="assets/img/sim/2.png" alt="integration" class="img-fluid">
+                                        <h6 class="mb-0 mt-4">Mycall</h6>
                                     </div>
                                 </li>
                                 <li>
                                     <div class="single-integration">
-                                        <img src="assets/img/integations/facebook.png" alt="integration" class="img-fluid">
-                                        <h6 class="mb-0 mt-4">Brand Name</h6>
+                                        <img src="assets/img/sim/3.png" alt="integration" class="img-fluid">
+                                        <h6 class="mb-0 mt-4">Telenor</h6>
                                     </div>
                                 </li>
                                 <li>
                                     <div class="single-integration">
-                                        <img src="assets/img/integations/sales-force.png" alt="integration" class="img-fluid">
-                                        <h6 class="mb-0 mt-4">Brand Name</h6>
+                                        <img src="assets/img/sim/4.png" alt="integration" class="img-fluid">
+                                        <h6 class="mb-0 mt-4">Lyca Mobile</h6>
                                     </div>
                                 </li>
                                 <li>
                                     <div class="single-integration">
-                                        <img src="assets/img/integations/atlassian.png" alt="integration" class="img-fluid">
-                                        <h6 class="mb-0 mt-4">Brand Name</h6>
+                                        <img src="assets/img/sim/5.png" alt="integration" class="img-fluid">
+                                        <h6 class="mb-0 mt-4">O <sub>2</sub></h6>
                                     </div>
                                 </li>
                                 <li>
                                     <div class="single-integration">
-                                        <img src="assets/img/integations/dropbox-2.png" alt="integration" class="img-fluid">
-                                        <h6 class="mb-0 mt-4">Brand Name</h6>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="single-integration">
-                                        <img src="assets/img/integations/dynamic-365.png" alt="integration" class="img-fluid">
-                                        <h6 class="mb-0 mt-4">Brand Name</h6>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="single-integration">
-                                        <img src="assets/img/integations/erecruiter.png" alt="integration" class="img-fluid">
-                                        <h6 class="mb-0 mt-4">Brand Name</h6>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="single-integration">
-                                        <img src="assets/img/integations/evernote.png" alt="integration" class="img-fluid">
-                                        <h6 class="mb-0 mt-4">Brand Name</h6>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="single-integration">
-                                        <img src="assets/img/integations/google-icon.png" alt="integration" class="img-fluid">
-                                        <h6 class="mb-0 mt-4">Brand Name</h6>
-                                    </div>
-                                </li>
-
-                                <li>
-                                    <div class="single-integration">
-                                        <img src="assets/img/integations/slack.png" alt="integration" class="img-fluid">
-                                        <h6 class="mb-0 mt-4">Brand Name</h6>
-                                    </div>
-                                </li>
-
-                                <li>
-                                    <div class="single-integration">
-                                        <img src="assets/img/integations/google-analytics.png" alt="integration" class="img-fluid">
-                                        <h6 class="mb-0 mt-4">Brand Name</h6>
-                                    </div>
-                                </li>
-
-                                <li>
-                                    <div class="single-integration">
-                                        <img src="assets/img/integations/google-drive.png" alt="integration" class="img-fluid">
-                                        <h6 class="mb-0 mt-4">Brand Name</h6>
-                                    </div>
-                                </li>
-
-                                <li>
-                                    <div class="single-integration">
-                                        <img src="assets/img/integations/hubspot.png" alt="integration" class="img-fluid">
-                                        <h6 class="mb-0 mt-4">Brand Name</h6>
-                                    </div>
-                                </li>
-
-                                <li>
-                                    <div class="single-integration">
-                                        <img src="assets/img/integations/instagram.png" alt="integration" class="img-fluid">
-                                        <h6 class="mb-0 mt-4">Brand Name</h6>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="single-integration">
-                                        <img src="assets/img/integations/linkedin.png" alt="integration" class="img-fluid">
-                                        <h6 class="mb-0 mt-4">Brand Name</h6>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="single-integration">
-                                        <img src="assets/img/integations/mailchimp.png" alt="integration" class="img-fluid">
-                                        <h6 class="mb-0 mt-4">Brand Name</h6>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="single-integration">
-                                        <img src="assets/img/integations/marekto.png" alt="integration" class="img-fluid">
-                                        <h6 class="mb-0 mt-4">Brand Name</h6>
+                                        <img src="assets/img/sim/6.webp" alt="integration" class="img-fluid">
+                                        <h6 class="mb-0 mt-4">Chili Mobile</h6>
                                     </div>
                                 </li>
                             </ul>
@@ -731,7 +390,7 @@
             <div class="modal-dialog modal-dialog-centered modal-lg">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="staticBackdropLabel">Get Your Qoute</h5>
+                    <h5 class="modal-title" id="staticBackdropLabel">Prøv gratis nå!</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
@@ -741,41 +400,41 @@
                                 <div class="row">
                                     <div class="col-sm-6">
                                         <div class="input-group mb-3">
-                                            <input type="text" class="form-control" placeholder="Name" aria-label="name">
+                                            <input type="text" class="form-control" placeholder="Navn" aria-label="name">
                                         </div>
                                     </div>
                                     <div class="col-sm-6 ">
                                         <div class="input-group mb-3">
-                                            <input type="email" class="form-control" placeholder="Email" aria-label="email">
+                                            <input type="email" class="form-control" placeholder="Epost" aria-label="email">
                                         </div>
                                     </div>
                                     <div class="col-sm-6">
                                         <div class="input-group mb-3">
-                                            <input type="text" class="form-control" placeholder="Company website" aria-label="company-website">
+                                            <input type="text" class="form-control" placeholder="Selskapets hjemmeside" aria-label="company-website">
                                         </div>
                                     </div>
                                     <div class="col-sm-6">
                                         <div class="input-group mb-3">
-                                            <input type="email" class="form-control" placeholder="Work email" aria-label="work-Email">
+                                            <input type="email" class="form-control" placeholder="Arbeids-e-post" aria-label="work-Email">
                                         </div>
                                     </div>
                                     <div class="col-sm-6">
                                         <div class="input-group mb-3">
-                                            <select class="form-control form-select" name="budget" id="budget" required="" data-msg="Please select your budget.">
-                                                <option value="" selected="" disabled="">Budget</option>
-                                                <option value="budget1">None, just getting started</option>
-                                                <option value="budget1">Less than $20,000</option>
-                                                <option value="budget1">$20,000 to $50,000</option>
-                                                <option value="budget1">$50,000 to $100,000</option>
-                                                <option value="budget2">$100,000 to $500,000</option>
-                                                <option value="budget3">More than $500,000</option>
+                                            <select class="form-control form-select" name="budget" id="budget" required="" data-msg="Please select number of SMS.">
+                                                <option value="" selected="" disabled="">SMS</option>
+                                                <option value="budget1">Ingen, akkurat i gang</option>
+                                                <option value="budget1">Mindre enn 20,000</option>
+                                                <option value="budget1">20,000 to 50,000</option>
+                                                <option value="budget1">50,000 to 100,000</option>
+                                                <option value="budget2">100,000 to 500,000</option>
+                                                <option value="budget3">Mer enn 500,000</option>
                                             </select>
                                         </div>
                                     </div>
                                     <div class="col-sm-6">
                                         <div class="input-group mb-3">
-                                            <select class="form-control form-select" name="country" id="country" required="" data-msg="Please select your country.">
-                                                <option value="" selected="" disabled="">Country</option>
+                                            <select class="form-control form-select" name="country" id="country" required="" data-msg="Vennligst velg ditt land.">
+                                                <option value="" selected="" disabled="">Land</option>
                                                 <option value="AF">Afghanistan</option>
                                                 <option value="AX">Åland Islands</option>
                                                 <option value="AL">Albania</option>
@@ -1030,7 +689,7 @@
                                     </div>
                                     <div class="col-12">
                                         <div class="input-group mb-3">
-                                            <textarea class="form-control" placeholder="Tell us more about your project, needs and budget" style="height: 120px"></textarea>
+                                            <textarea class="form-control" placeholder="Fortell oss mer om ditt prosjekt, behov og budsjett" style="height: 120px"></textarea>
                                         </div>
                                     </div>
                                 </div>
@@ -1039,8 +698,8 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Understood</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Lukk</button>
+                    <button type="button" class="btn btn-primary">Sende inn</button>
                 </div>
             </div>
             </div>
@@ -1054,7 +713,7 @@
                     <div class="row justify-content-between align-items-center">
                         <div class="col-md-7 col-lg-7">
                             <div class="copyright-text">
-                                <p class="mb-lg-0 mb-md-0">&copy; 2021 Smscaster.no Rights Reserved. Designed By <a href="https://themetags.com/" class="text-decoration-none">ThemeTags</a></p>
+                                <p class="mb-lg-0 mb-md-0">&copy; 2021 Smscaster.no Rights Reserved. Designed By <a href="https://combrokers.no/" class="text-decoration-none">Combrokers Teams</a></p>
                             </div>
                         </div>
                         <div class="col-md-4 col-lg-4">
