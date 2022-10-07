@@ -254,6 +254,49 @@ var THEMETAGS = THEMETAGS || {};
         slidesPerView: 3
       }
     }
+  }); //digital marketing brand logo logo
+
+  var swiper = new Swiper(".digi-logo-slider", {
+    slidesPerView: 1,
+    spaceBetween: 24,
+    speed: 1000,
+    autoplay: {
+      delay: 2500
+    },
+    slidesPerGroup: 1,
+    loop: true,
+    breakpoints: {
+      320: {
+        slidesPerView: 1,
+        spaceBetween: 16
+      },
+      768: {
+        slidesPerView: 3
+      },
+      991: {
+        slidesPerView: 4
+      }
+    }
+  }); //digital marketing testimonial
+
+  var swiper = new Swiper(".digi-testimonial-wrapper", {
+    slidesPerView: 1,
+    loop: true,
+    speed: 800,
+    navigation: {
+      nextEl: ".digi-nav-control .swiper-button-next",
+      prevEl: ".digi-nav-control .swiper-button-prev"
+    }
+  }); //digital marketing testimonial
+
+  var swiper = new Swiper(".ev-testimonial-slider", {
+    slidesPerView: 1,
+    loop: true,
+    speed: 800,
+    pagination: {
+      clickable: true,
+      el: ".eve-pagination.swiper-pagination"
+    }
   });
   THEMETAGS.initialize = {
     init: function () {
